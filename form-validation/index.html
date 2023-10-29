@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+
+<div class="wrapper">
+    <div class="container">
+        <h1 class="title">REGISTRATION</h1>
+        <div class="form">
+            <form action="#" id="form" method="post">
+                <div class="success">
+                    <p class="success-title">Success</p>
+                    <div class="success-text">
+
+                    </div>
+                    <a href="index.html" class="success-link">Back to the home page</a>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name*</label>
+                    <input type="text" id="name" placeholder="Enter your name" class="name__input">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="text" id="email" placeholder="Enter your email" class="email__input">
+                </div>
+                <div class="form-group password">
+                    <label for="password">Password*</label>
+                    <input type="password" id="password" placeholder="Enter your password" class="password__input">
+                    <i class="fa fa-eye password-toggle__btn"></i>
+                </div>
+                <div class="form-group password">
+                    <label for="password2">Confirm Password*</label>
+                    <input type="password" id="password2" placeholder="Confirm your password" class="confirm-password__input">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</div>
+</body>
+</html>

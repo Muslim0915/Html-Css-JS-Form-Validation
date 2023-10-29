@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Exo", sans-serif;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #161845;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+}
+
+.container {
+  width: 50%;
+  background-color: #85E1E7;
+  padding: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1.title {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #161845;
+  letter-spacing: 0.1em;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form .success {
+  display: none;
+}
+.form .success .success-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #161845;
+  letter-spacing: 0.1em;
+}
+.form .success .success-text {
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #161845;
+  letter-spacing: 0.1em;
+}
+.form .success .success-text span {
+  color: #fff74b;
+}
+.form .success .success-link {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+.form .success.successShow {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+}
+.form-group:last-child {
+  margin-bottom: 0;
+}
+.form-group label {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #161845;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.form-group input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 5px;
+  position: relative;
+}
+.form-group input:hover, .form-group input:focus {
+  background-color: #E9E5E5;
+}
+.form-group input.error-input {
+  border: 1px solid red;
+}
+.form-group #name {
+  text-transform: capitalize;
+}
+.form-group small {
+  color: red;
+  display: none;
+}
+.form-group small.errorShow {
+  display: block;
+  width: 40%;
+}
+
+.form-group.password {
+  position: relative;
+}
+.form-group.password i {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #161845;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #161845;
+  height: 100px;
+  border-radius: 20px;
+  font-size: 30px;
+  color: #85E1E7;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
+  text-transform: uppercase;
+}
+.submit-btn:hover {
+  background-color: #85E1E7;
+  border: 1px solid #161845;
+  color: #161845;
+  box-shadow: 0 0 10px #161845;
+}
+
+.displayNone {
+  display: none !important;
+}
+
+/*# sourceMappingURL=main.css.map */
