@@ -124,8 +124,8 @@ h1.title {
 }
 .form-group.password i {
   position: absolute;
-  top: 60px;
-  right: 10px;
+  top: 65px;
+  right: 25px;
   transform: translateY(-50%);
   color: #161845;
   cursor: pointer;
