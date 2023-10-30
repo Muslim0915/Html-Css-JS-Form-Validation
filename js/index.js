@@ -74,7 +74,7 @@ const validate = {
     },
     removeError(element){
         element.classList.remove('error-input');
-        element.parentElement.querySelector('.error').remove();
+        element.closest('.form-group').querySelector('small').remove();
 
     },
     isEmptyName(name) {
@@ -149,22 +149,44 @@ const validate = {
 
 
 
-    fetchJson() {
-        const jsonNameElement = document.querySelector("#jsonName");
-        const jsonEmailElement = document.querySelector("#jsonEmail");
+     fetchJson() {
+    const jsonNameElement = document.querySelector("#jsonName");
+    const jsonEmailElement = document.querySelector("#jsonEmail");
 
-        const formData = localStorage.getItem('formData');
-        if (formData) {
-            const data = JSON.parse(formData);
-            if (jsonNameElement) {
-                jsonNameElement.textContent = data.name;
-            }
-            if (jsonEmailElement) {
-                jsonEmailElement.textContent = data.email;
-            }
+    // Получить существующие данные из localStorage или создать новый массив
+    let formData = JSON.parse(localStorage.getItem('formData')) || [];
+
+    if (!Array.isArray(formData)) {
+        // Если formData не является массивом, создать новый пустой массив
+        formData = [];
+    }
+
+    if (formData.length > 0) {
+        const data = formData[formData.length - 1];
+        if (jsonNameElement) {
+            jsonNameElement.textContent = data.name;
         }
-        console.log(formData);
-    },
+        if (jsonEmailElement) {
+            jsonEmailElement.textContent = data.email;
+        }
+    }
+
+    // Добавить новые данные в массив formData
+    const newData = {
+        name: "Новое имя", // Замените на реальное имя пользователя
+        email: "новый@example.com", // Замените на реальный email пользователя
+    };
+
+    formData.push(newData);
+
+    // Сохранить обновленные данные в localStorage
+    localStorage.setItem('formData', JSON.stringify(formData));
+
+    console.log(formData);
+}
+
+
+// Вызывайте функцию fetchJson() в нужных местах вашего кода для сохранения данных при каждой проверке пользователя.
 
 }
 
