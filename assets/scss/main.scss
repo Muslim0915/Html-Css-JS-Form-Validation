@@ -117,6 +117,9 @@ h1.title {
       background-color: #E9E5E5;
     }
   }
+  input.user-focused {
+    border: 1px solid $secondary-color;
+  }
 
   input.error-input {
     border: 1px solid red;
@@ -133,7 +136,8 @@ h1.title {
 
   small.errorShow {
     display: block;
-    width: 40%;
+    width: 100%;
+    font-size: 20px;
   }
 }
 
@@ -147,6 +151,7 @@ h1.title {
     transform: translateY(-50%);
     color: $secondary-color;
     cursor: pointer;
+    font-size: 24px;
   }
 }
 

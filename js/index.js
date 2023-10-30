@@ -18,7 +18,6 @@ const validate = {
     initEventHandler() {
         this.settings.formContainer.addEventListener('submit', (event) => this.handleSubmit(event));
         this.passwordToggle();
-
     },
 
     handleSubmit(event) {
@@ -34,9 +33,9 @@ const validate = {
             this.showSuccess();
             this.clearInputs();
             this.valid = true;
-
         }
     },
+
 
     removeErrors() {
         document.querySelectorAll('.error').forEach(element => element.remove());
@@ -46,7 +45,8 @@ const validate = {
         })
     },
     isValidForm() {
-        this.settings.inputs.forEach(element => {
+        for (let i = 0; i < this.settings.inputs.length; i++) {
+            const element = this.settings.inputs[i];
             if (element.classList.contains('name__input') && this.isEmptyName(element.value)) {
                 this.showError(element, 'This field should not be empty');
                 this.settings.errors++;
@@ -67,7 +67,15 @@ const validate = {
                 this.settings.errors++;
                 element.classList.add('error-input');
             }
-        })
+            element.addEventListener('focus', () => {
+                this.removeError(element);
+            })
+        }
+    },
+    removeError(element){
+        element.classList.remove('error-input');
+        element.parentElement.querySelector('.error').remove();
+
     },
     isEmptyName(name) {
         return name === '';
@@ -86,23 +94,20 @@ const validate = {
             /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)
         );
     },
-    requestJson(event){
-            event.preventDefault();
-            const resultDiv = document.querySelector('.success-text');
-            const name = this.settings.formContainer.elements.name.value;
-            const email = this.settings.formContainer.elements.email.value;
+    requestJson(event) {
+        event.preventDefault();
+        const name = this.settings.formContainer.elements.name.value;
+        const email = this.settings.formContainer.elements.email.value;
 
-            const jsonData = {
-                name: name,
-                email: email
-            };
+        const jsonData = {
+            name: name,
+            email: email
+        };
 
-            const jsonString = JSON.stringify(jsonData);
-            console.log(jsonString);
+        localStorage.setItem('formData', JSON.stringify(jsonData));
 
-        resultDiv.innerHTML =`<p id="jsonName">Your name: <span> ${name}</span></p><p id="jsonEmail">Your email: <span> ${email} </span> </p>`;
-
-
+        const resultDiv = document.querySelector('.success-text');
+        resultDiv.innerHTML = `<p id="jsonName">Your name: <span>${name}</span></p><p id="jsonEmail">Your email: <span>${email}</span></p>`;
     },
     showError(field, message) {
         const errorElement = document.createElement('small');
@@ -144,21 +149,22 @@ const validate = {
 
 
 
-    fetchJson(){
+    fetchJson() {
         const jsonNameElement = document.querySelector("#jsonName");
         const jsonEmailElement = document.querySelector("#jsonEmail");
-        fetch("data.json")
-            .then(response => response.json())
-            .then(data => {
-                if (jsonNameElement) {
-                    jsonNameElement.textContent = data.name;
-                }
-                if (jsonEmailElement) {
-                    jsonEmailElement.textContent = data.email;
-                }
-            })
-            .catch(error => console.error("Ошибка при загрузке JSON-файла:", error));
-    }
+
+        const formData = localStorage.getItem('formData');
+        if (formData) {
+            const data = JSON.parse(formData);
+            if (jsonNameElement) {
+                jsonNameElement.textContent = data.name;
+            }
+            if (jsonEmailElement) {
+                jsonEmailElement.textContent = data.email;
+            }
+        }
+        console.log(formData);
+    },
 
 }
 

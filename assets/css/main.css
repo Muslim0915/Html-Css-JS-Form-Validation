@@ -104,6 +104,9 @@ h1.title {
 .form-group input:hover, .form-group input:focus {
   background-color: #E9E5E5;
 }
+.form-group input.user-focused {
+  border: 1px solid #161845;
+}
 .form-group input.error-input {
   border: 1px solid red;
 }
@@ -116,7 +119,8 @@ h1.title {
 }
 .form-group small.errorShow {
   display: block;
-  width: 40%;
+  width: 100%;
+  font-size: 20px;
 }
 
 .form-group.password {
@@ -129,6 +133,7 @@ h1.title {
   transform: translateY(-50%);
   color: #161845;
   cursor: pointer;
+  font-size: 24px;
 }
 
 .submit-btn {
